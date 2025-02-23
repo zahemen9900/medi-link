@@ -1,0 +1,79 @@
+.milestone-section {
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.milestone-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.milestone-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 50%, #388e3c 100%);
+  border-radius: 10px;
+}
+
+.milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.milestone-item {
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.milestone-item:hover {
+  transform: translateY(-5px);
+}
+
+.milestone-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+}
+
+.milestone-description {
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  opacity: 0.9;
+  text-align: left;
+}
+
+.milestone-heading {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .milestone-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .milestone-grid {
+    grid-template-columns: 1fr;
+  }
+}

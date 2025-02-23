@@ -1,0 +1,39 @@
+.logo-section {
+  padding: 2rem 2rem;
+  background-color: #ffffff;
+}
+
+.logo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo-container h2 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.logo-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+
+.logo-item {
+  flex: 0 1 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-item img {
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,246 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.modal-content h2 {
+  color: #4CAF50;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+}
+.modal-content .fill {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: left;
+    font-family: "Roboto", sans-serif;
+  }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.form-group input.error {
+  border-color: #ff4444;
+  box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.1);
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 50%, #388e3c 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 200px;
+  margin: 2rem auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  display: block;
+  text-align: center;
+}
+
+.terms {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.error-message {
+  color: #ff4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+.terms {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 0.9rem;
+}
+.green-text{
+    color: #4CAF50;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+    width: 95%;
+  }
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.form-group input.error {
+  border-color: #ff4444;
+  box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.1);
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 50%, #388e3c 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 200px;
+  margin: 2rem auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  display: block;
+  text-align: center;
+}
+
+.terms {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.error-message {
+  color: #ff4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+.terms {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 0.9rem;
+}
+.green-text{
+    color: #4CAF50;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+    width: 95%;
+  }
+}
