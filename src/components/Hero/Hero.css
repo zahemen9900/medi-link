@@ -23,7 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   gap: 2rem;
 }
@@ -52,8 +52,13 @@
 }
 
 .cta-button {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  margin-top: 100px;
   padding: 1rem 2rem;
   font-size: 1.1rem;
+  width: 300px;
   background-color: #ffffff;
   color: #4CAF50;
   border: none;

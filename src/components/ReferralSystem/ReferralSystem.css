@@ -1,0 +1,133 @@
+.referral-system {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.referral-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 600px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.referral-left {
+  flex: 1;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 50%, #388e3c 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.referral-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.referral-content {
+  flex: 1;
+  padding: 60px;
+}
+
+.referral-content h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.section-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.features-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.bullet-point {
+  color: #4CAF50;
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 5px;
+}
+
+.feature-text h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.feature-text p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .referral-container {
+    margin: 0 20px;
+  }
+
+  .referral-content {
+    padding: 40px;
+  }
+
+  .referral-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .referral-container {
+    flex-direction: column;
+  }
+
+  .referral-left {
+    height: 200px;
+  }
+
+  .referral-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .feature-item {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .referral-content {
+    padding: 30px 20px;
+  }
+
+  .referral-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-description {
+    font-size: 1rem;
+  }
+}

@@ -8,22 +8,22 @@ const HowItWorks = () => {
     {
       number: 1,
       title: 'Sign up',
-      description: 'Create your account and complete your profile to join our healthcare referral network'
+      description: 'Quick and easy registration process to get started fast.'
     },
     {
       number: 2,
       title: 'Leverage our tools',
-      description: 'Access our suite of referral management tools and resources'
+      description: 'Marketing resources and case-handling tools at your fingertips.'
     },
     {
       number: 3,
       title: 'Start Referring',
-      description: 'Connect patients with quality healthcare providers in our network'
+      description: "Connect clients to their ideal services, backed by My 1Health's trusted network."
     },
     {
       number: 4,
       title: 'Earn',
-      description: 'Receive competitive compensation for successful referrals'
+      description: 'Transparent payment structure for every successful referral.'
     }
   ];
 

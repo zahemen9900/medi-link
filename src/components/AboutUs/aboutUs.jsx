@@ -12,16 +12,15 @@ const aboutUs = () => {
         <div className="hero-content">
           <h1>About The Referral Partner Network</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia,
-            tenetur molestias. Veniam similique nemo tempora delectus pariatur,
-            consequuntur id dicta? Distinctio suscipit quidem necessitatibus sed
-            consequatur unde aperiam voluptatem dicta?
+            The Hello Referral Partner Network is trusted a trusted community of
+            healthcare and wellness champions dedicated to connecting clients
+            with top healthcare and wellness solutions
           </p>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
-            minus ut modi sed deleniti enim aperiam? Maiores temporibus
-            voluptatibus odit modi non laborum, reprehenderit ut odio. Eaque
-            aliquid consectetur voluptate.
+            The Hello empowers you to confidently provide world-class healthcare
+            and wellness options to your clients, whether you're a new or
+            established medical tourism facilitator, travel agent, or a
+            professional interested in growing your business.
           </p>
         </div>
       </div>

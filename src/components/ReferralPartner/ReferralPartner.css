@@ -1,0 +1,124 @@
+.referral-partner-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.referral-partner-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 500px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.referral-partner-content {
+  flex: 1;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 50%, #388e3c 100%);
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.referral-partner-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.referral-partner-content h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.referral-partner-content p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.apply-button {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #4CAF50;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+.apply-button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.referral-partner-image {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.referral-partner-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+  .referral-partner-container {
+    flex-direction: column;
+  }
+
+  .referral-partner-content,
+  .referral-partner-image {
+    width: 100%;
+  }
+
+  .referral-partner-content {
+    padding: 40px;
+  }
+
+  .referral-partner-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .referral-partner-section {
+    padding: 60px 0;
+  }
+
+  .referral-partner-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .referral-partner-content p {
+    font-size: 1rem;
+  }
+
+  .apply-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}

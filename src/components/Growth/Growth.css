@@ -1,0 +1,166 @@
+.growth-section {
+  padding: 80px 0;
+  background-color: #4CAF50;
+}
+
+.growth-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.growth-image {
+  flex: 1;
+  position: relative;
+}
+
+.growth-image::before {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  top: -40px;
+  left: -40px;
+  z-index: 1;
+}
+
+.growth-image::after {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.1);
+  bottom: -35px;
+  right: -35px;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.growth-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.growth-content {
+  flex: 1;
+}
+
+.growth-content h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.section-description {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.features-grid {
+  display: grid;
+  gap: 30px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.feature-icon {
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.feature-text h3 {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.feature-text p {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 968px) {
+  .growth-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .growth-image,
+  .growth-content {
+    flex: none;
+    width: 100%;
+  }
+
+  .growth-image::before {
+    width: 120px;
+    height: 120px;
+    top: -25px;
+    left: 5%;
+  }
+
+  .growth-image::after {
+    width: 100px;
+    height: 100px;
+    bottom: -20px;
+    right: 5%;
+  }
+
+  .feature-item {
+    text-align: left;
+  }
+
+  .growth-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .growth-section {
+    padding: 60px 0;
+  }
+
+  .growth-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .features-grid {
+    gap: 20px;
+  }
+
+  .growth-image::before {
+    width: 90px;
+    height: 90px;
+    top: -15px;
+    left: 0;
+  }
+
+  .growth-image::after {
+    width: 70px;
+    height: 70px;
+    bottom: -12px;
+    right: 0;
+  }
+}

@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     gap: 2rem;
   }
@@ -36,6 +36,7 @@
   }
   
   .hero-content h1 {
+    text-align: left;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -44,6 +45,7 @@
   }
   
   .hero-content p {
+    text-align: left;
     font-size: 1.25rem;
     margin-bottom: 2rem;
     line-height: 1.6;
@@ -53,7 +55,7 @@
 
   .hero-image {
     flex: 1;
-    max-width: 500px;
+    max-width: 950px;
   }
   
   .hero-image img {
