@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.css";
-import Frame1Pic from "../../assets/Frame 1pic.png";
+import heroImg from "../../assets/HeroImg.jpg";
 
 const Hero = () => {
   return (
@@ -17,7 +17,7 @@ const Hero = () => {
             <button className="cta-button">Request more Info</button>
         </div>
         <div className="hero-image">
-          <img src={Frame1Pic} alt="Healthcare Professional" />
+          <img src={heroImg} alt="Healthcare Professional" />
         </div>
       </div>
     </section>

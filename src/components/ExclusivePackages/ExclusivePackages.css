@@ -1,6 +1,6 @@
 .exclusive-packages {
     padding: 80px 0;
-    background-color: #f8f9fa;
+    color: #4CAF50;
 }
 
 .container {
@@ -13,14 +13,14 @@
     font-family: "Roboto", sans-serif;
     text-align: center;
     font-size: 2.5rem;
-    color: #333;
+    color: #4CAF50;
     margin-bottom: 20px;
 }
 
-.section-description {
+.exclusive-packages .section-description {
     font-family: "Roboto", sans-serif;
     text-align: center;
-    color: #666;
+    color: #4CAF50 !important;
     font-size: 1.1rem;
     margin-bottom: 50px;
     max-width: 600px;

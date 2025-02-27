@@ -105,7 +105,7 @@
 @media (max-width: 968px) {
   .growth-container {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
 
   .growth-image,
@@ -134,6 +134,7 @@
 
   .growth-content h2 {
     font-size: 2rem;
+    text-align: left;
   }
 }
 
@@ -144,6 +145,7 @@
 
   .growth-content h2 {
     font-size: 1.8rem;
+    text-align: left;
   }
 
   .features-grid {

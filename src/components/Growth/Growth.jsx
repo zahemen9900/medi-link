@@ -1,6 +1,6 @@
 import React from 'react';
 import './Growth.css';
-import growthImage from '../../assets/frame 119.png';
+import growthImage from '../../assets/Growth-pic.jpg';
 
 const Growth = () => {
   return (

@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import './Footer.css';
 
 const Footer = () => {
@@ -9,10 +12,10 @@ const Footer = () => {
           <h3>MMMedical</h3>
           <p>Connecting healthcare professionals worldwide through our trusted referral network.</p>
           <div className="social-links">
-            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a href="#" aria-label="Twitter"><FontAwesomeIcon icon={faTwitter} /></a>
+            <a href="#" aria-label="LinkedIn"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+            <a href="#" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} /></a>
           </div>
         </div>
 
@@ -39,9 +42,9 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Contact Us</h4>
           <ul className="contact-info">
-            <li><i className="fas fa-phone"></i> +1 (234) 567-8900</li>
-            <li><i className="fas fa-envelope"></i> contact@mmmedical.com</li>
-            <li><i className="fas fa-map-marker-alt"></i> 123 Healthcare Ave, Medical District</li>
+            <li><FontAwesomeIcon icon={faPhone} /> +233 ###-####</li>
+            <li><FontAwesomeIcon icon={faEnvelope} /> contact@mmmedical.com</li>
+            <li><FontAwesomeIcon icon={faMapMarkerAlt} /> 123 Healthcare Ave, Medical District</li>
           </ul>
         </div>
       </div>

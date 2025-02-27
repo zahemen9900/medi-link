@@ -1,15 +1,15 @@
 import React from "react";
 import "./aboutUs.css";
-import Frame1Pic from "../../assets/Frame 1pic.png";
+import ReferralPic from "../../assets/Referral-Img.jpg";
 
 const aboutUs = () => {
   return (
-    <section className="hero">
-      <div className="hero-container">
-        <div className="hero-image">
-          <img src={Frame1Pic} alt="Healthcare Professional" />
+    <section className="about-hero">
+      <div className="about-hero-container">
+        <div className="about-hero-image">
+          <img src={ReferralPic} alt="Healthcare Professional" />
         </div>
-        <div className="hero-content">
+        <div className="about-hero-content">
           <h1>About The Referral Partner Network</h1>
           <p>
             The Hello Referral Partner Network is trusted a trusted community of

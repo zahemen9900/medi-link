@@ -17,7 +17,7 @@ const ReferralPartner = () => {
           <button className="apply-button" onClick={() => setIsModalOpen(true)}>Apply today</button>
         </div>
         <div className="referral-partner-image">
-          <img src="/src/assets/Frame 119.png" alt="Doctor with smartphone" />
+          <img src="../src/assets/ApplyNow-pic.jpg" alt="Doctor with smartphone" />
         </div>
       </div>
       <ReferralForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
