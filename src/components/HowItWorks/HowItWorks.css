@@ -1,6 +1,16 @@
 .how-it-works {
   padding: 80px 0;
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  ),
+  linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+background-size: 8px 8px, 100% 100%;
+background-position: center center;
 }
 
 .container {
@@ -12,41 +22,89 @@
 
 .how-it-works h2 {
   font-size: 2.5rem;
-  color: #4CAF50;
+  color: #fff;
   margin-bottom: 50px;
   font-family: "Roboto", sans-serif;
 }
 
 .steps-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 50px;
-  flex-wrap: wrap;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
 }
 
 .step {
-  flex: 1;
-  min-width: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .step-number {
-  width: 60px;
-  height: 60px;
-  background-color: #00A651;
-  color: white;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 100%);
+  color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
-  margin: 0 auto 20px;
+  margin: 0 auto 1.5rem;
   position: relative;
   z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.step p {
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+.get-started-btn {
+  background: #ffffff;
+  color: #4b9b6e;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.get-started-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .connector-line {
@@ -55,38 +113,40 @@
   right: -50%;
   width: 100%;
   height: 2px;
-  background-color: #00A651;
+  background-color: #fff;
   transform: translateY(-50%);
   z-index: 1;
 }
 
 .step h3 {
   font-size: 1.5rem;
-  color:  #4CAF50;
+  color:  #fff;
   margin-bottom: 15px;
   font-family: "Roboto", sans-serif;
 }
 
 .step p {
-  color: #666;
+  color: #fff;
+  text-align: center;
   line-height: 1.6;
   margin: 0;
   font-family: "Roboto", sans-serif;
 }
 
 .get-started-btn {
-  background-color: #00A651;
-  color: white;
+  background-color: #fff;
+  color: #4b9b6e;
+  font-family: "Roboto", sans-serif;
   border: none;
-  padding: 15px 40px;
-  font-size: 1.1rem;
-  border-radius: 30px;
+  border-radius: 10px;
+  padding: 15px 90px;
+  font-size: 1.4rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .get-started-btn:hover {
-  background-color: #008f45;
+  background-color: #ccc;
 }
 
 @media (max-width: 1024px) {

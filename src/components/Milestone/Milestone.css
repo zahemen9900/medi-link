@@ -5,21 +5,35 @@
 }
 
 .milestone-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
   pointer-events: none;
 }
 
 .milestone-container {
   max-width: 1200px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 50%, #388e3c 100%);
+  background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
   border-radius: 10px;
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+  background-size: 8px 8px, 100% 100%;
+  background-position: center center;
 }
 
 .milestone-grid {

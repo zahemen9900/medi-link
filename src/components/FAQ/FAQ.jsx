@@ -64,19 +64,6 @@ const FAQ = () => {
             </div>
           ))}
         </div>
-        <div className="question-form">
-          <h3>Have a Question?</h3>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Type your question here..."
-              required
-            />
-            <button type="submit">Submit Question</button>
-          </form>
-        </div>
       </div>
     </section>
   );

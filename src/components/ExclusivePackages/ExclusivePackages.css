@@ -13,14 +13,14 @@
     font-family: "Roboto", sans-serif;
     text-align: center;
     font-size: 2.5rem;
-    color: #4CAF50;
+    color: #000;
     margin-bottom: 20px;
 }
 
 .exclusive-packages .section-description {
     font-family: "Roboto", sans-serif;
     text-align: center;
-    color: #4CAF50 !important;
+    color: #000;
     font-size: 1.1rem;
     margin-bottom: 50px;
     max-width: 600px;
@@ -56,20 +56,20 @@
 
 .package-icon {
     font-size: 2.5rem;
-    color: #4CAF50;
+    color: #4b9b6e;
     margin-bottom: 20px;
 }
 
 .package-card h3 {
     font-family: "Roboto", sans-serif;
-    color: #333;
+    color: #111;
     font-size: 1rem;
     margin-bottom: 15px;
 }
 
 .package-card p {
     font-family: "Roboto", sans-serif;
-    color: #666;
+    color: #222;
     font-size: 0.8rem;
     line-height: 1.5;
 }

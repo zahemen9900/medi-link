@@ -1,6 +1,7 @@
 .logo-section {
-  padding: 2rem 2rem;
+  padding: 2rem 1rem;
   background-color: #ffffff;
+  overflow: hidden;
 }
 
 .logo-container {
@@ -22,11 +23,13 @@
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  flex-wrap: nowrap;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+  padding-right: 2rem;
 }
 
 .logo-item {
-  flex: 0 1 40px;
+  flex: 0 0 120px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -36,4 +39,50 @@
 .logo-item img {
   max-width: 100%;
   height: auto;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .logo-container h2 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-grid {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .logo-item {
+    flex: 0 0 100px;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo-section {
+    padding: 1rem 0.25rem;
+  }
+
+  .logo-grid {
+    gap: 1rem;
+    padding-right: 1rem;
+  }
+
+  .logo-item {
+    flex: 0 0 80px;
+    height: 30px;
+  }
 }

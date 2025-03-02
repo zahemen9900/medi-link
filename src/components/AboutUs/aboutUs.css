@@ -3,9 +3,19 @@
   display: flex;
   align-items: center;
   padding: 2rem;
-  background: linear-gradient(135deg, #4caf50 0%, #45a049 50%, #388e3c 100%);
+  background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
   position: relative;
   overflow: hidden;
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+  background-size: 8px 8px, 100% 100%;
+  background-position: center center;
 }
 
 .about-hero::before {
@@ -62,7 +72,7 @@
 
 .about-hero-image::before,
 .about-hero-image::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: 1;
 }
