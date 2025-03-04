@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3>MMMedical</h3>
+          <h3>Medi-Link</h3>
           <p>Connecting healthcare professionals worldwide through our trusted referral network.</p>
           <div className="social-links">
             <a href="#" aria-label="Facebook"><FontAwesomeIcon icon={faFacebookF} /></a>
@@ -20,10 +20,11 @@ const Footer = () => {
         </div>
 
         <div className="footer-section">
-          <h4>Quick Links</h4>
+          <h4>Company</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">How It Works</a></li>
+            <li><a href="./components/Hero/Hero.jsx">Home</a></li>
+            <li><a href="./components/AboutUs/about.jsx">About Us</a></li>
+            <li><a href="./components/HowItWorks/HowItWorks">How It Works</a></li>
             <li><a href="#">Packages</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
@@ -43,15 +44,15 @@ const Footer = () => {
           <h4>Contact Us</h4>
           <ul className="contact-info">
             <li><FontAwesomeIcon icon={faPhone} /> +233 ###-####</li>
-            <li><FontAwesomeIcon icon={faEnvelope} /> contact@mmmedical.com</li>
-            <li><FontAwesomeIcon icon={faMapMarkerAlt} /> 123 Healthcare Ave, Medical District</li>
+            <li><FontAwesomeIcon icon={faEnvelope} /> contact@Medi-Link.com</li>
+            <li><FontAwesomeIcon icon={faMapMarkerAlt} />  ### kumasi-tech</li>
           </ul>
         </div>
       </div>
 
       <div className="footer-bottom">
         <div className="footer-container">
-          <p>&copy; {new Date().getFullYear()} MMMedical. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Medi-Link. All rights reserved.</p>
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

@@ -18,21 +18,6 @@
   background-position: center center;
 }
 
-.about-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at 30% 50%,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  pointer-events: none;
-}
-
 .about-hero-container {
   display: flex;
   justify-content: space-between;
@@ -57,7 +42,7 @@
 }
 .about-hero-content p {
   text-align: left;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: 2rem;
   line-height: 1.6;
   color: #ffffff;
@@ -148,5 +133,14 @@
     margin-bottom: 0.7rem;
     color: #fff;
     font-family: "Roboto", sans-serif;
+  }
+  .about-hero-image::before {
+    top: -1rem;
+    right: -1rem;
+  }
+
+  .about-hero-image::after {
+    bottom: -1rem;
+    left: -1rem;
   }
 }

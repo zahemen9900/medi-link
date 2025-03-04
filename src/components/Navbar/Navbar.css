@@ -93,7 +93,15 @@
     left: 0;
     right: 0;
     flex-direction: column;
-    background: linear-gradient(135deg, #4caf50 0%, #45a049 50%, #388e3c 100%);
+    background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
     padding: 1rem;
     gap: 1rem;
     transform: translateY(-150%);

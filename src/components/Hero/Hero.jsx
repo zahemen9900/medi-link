@@ -8,13 +8,12 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1>
-            Empowering Your Success in Global Healthcare and Wellness Referral
+          Committed to Your Growth - Empowering Your Success in Global Healthcare and Wellness Referrals
           </h1>
           <p>
-            Connect with world-class medical facilities and experienced
-            healthcare providers for quality medical care and treatment.
+           My Medi-Link is your gateway to a global network of 150+ trusted healthcare and wellness providers. Join us to elevate your services, attract more clients, and enhance your revenue potential by offering premier healthcare solutions.
           </p>
-            <button className="cta-button">Request more Info</button>
+            <button className="cta-button">Request more Information</button>
         </div>
         <div className="hero-image">
           <img src={heroImg} alt="Healthcare Professional" />

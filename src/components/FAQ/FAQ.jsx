@@ -7,12 +7,12 @@ const FAQ = () => {
 
   const faqData = [
     {
-      question: 'What is Medi-Link?',
-      answer: 'Medi-Link is a healthcare platform that connects patients with healthcare providers, facilitating easy access to medical services and referrals.'
+      question: 'What qualifications are needed to become a Referral Partner?',
+      answer: "The only qualification is a passion for healthcare and experience in your field. We're looking for dedicated partners ready to put in the time and effort for a successful, rewarding collaboration."
     },
     {
-      question: 'How does the referral system work?',
-      answer: 'Our referral system allows healthcare providers to seamlessly refer patients to specialists, ensuring coordinated care and proper medical attention.'
+      question: 'What value does My 1Health provide?',
+      answer: 'i.Our referral system allows healthcare providers to seamlessly refer patients to specialists, ensuring coordinated care and proper medical attention.'    
     },
     {
       question: 'Is my medical information secure?',
@@ -34,7 +34,6 @@ const FAQ = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the question to your backend
     alert('Thank you for your question! We will get back to you soon.');
     setQuestion('');
   };

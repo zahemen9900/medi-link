@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './ReferralPartner.css';
-import ReferralForm from '../ReferralForm/ReferralForm';
+import React, { useState } from "react";
+import "./ReferralPartner.css";
+import ReferralForm from "../ReferralForm/ReferralForm";
 
 const ReferralPartner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,18 +9,28 @@ const ReferralPartner = () => {
     <section className="referral-partner-section">
       <div className="referral-partner-container">
         <div className="referral-partner-content">
-          <h2>Become a Referral Partner Today</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisrcitation ullamco
-          laboris nisi ut ant, sunt in culpa qui officia deserunt mollit anim id est
-          laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetue adipisrcitatation</p>
-          <button className="apply-button" onClick={() => setIsModalOpen(true)}>Apply today</button>
+          <h2>Become a Medi-Link Referral Partner Today</h2>
+          <p>
+            Partner with a global leader in healthcare and wellness referrals.
+            Start earning with each client you connect to world-class care. Your
+            success, simplified.
+          </p>
+          <p>Ready to Grow with Us? Join the My 1Health Referral Partner Network Today.</p>
+          <button className="apply-button" onClick={() => setIsModalOpen(true)}>
+            Apply today
+          </button>
         </div>
         <div className="referral-partner-image">
-          <img src="../src/assets/ApplyNow-pic.jpg" alt="Doctor with smartphone" />
+          <img
+            src="/src/assets/ApplyNow-pic.jpg"
+            alt="Doctor with smartphone"
+          />
         </div>
       </div>
-      <ReferralForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ReferralForm
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };

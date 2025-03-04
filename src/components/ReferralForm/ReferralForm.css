@@ -16,7 +16,7 @@
   padding: 2rem;
   border-radius: 10px;
   width: 90%;
-  max-width: 800px;
+  max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
@@ -40,15 +40,15 @@
 }
 
 .modal-content h2 {
-  color: #4CAF50;
+  color: #4b9b6e;
   margin-bottom: 1rem;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   text-align: left;
   font-family: "Roboto", sans-serif;
 }
 .modal-content .fill {
-    color: #4CAF50;
-    margin-bottom: 1rem;
+    color: #4b9b6e;
+    margin-bottom: 3rem;
     font-size: 1rem;
     text-align: left;
     font-family: "Roboto", sans-serif;
@@ -69,14 +69,14 @@
   display: block;
   margin-bottom: 0.5rem;
   color: #333;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "Roboto", sans-serif;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.6rem;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
@@ -98,7 +98,7 @@
 }
 
 .submit-button {
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 50%, #388e3c 100%);
+  background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -108,20 +108,11 @@
   width: 200px;
   margin: 2rem auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: block;
   text-align: center;
 }
 
-.terms {
-  margin-top: 1.5rem;
-  text-align: center;
-  width: 100%;
-  font-family: 'Roboto', sans-serif;
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
 .error-message {
   color: #ff4444;
   font-size: 0.875rem;
@@ -131,6 +122,7 @@
 
 .submit-button:hover {
   transform: translateY(-2px);
+  color: #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -139,11 +131,9 @@
 }
 .terms {
   margin-top: 20px;
-  text-align: center;
-  width: 100%;
   font-family: 'Roboto', sans-serif;
   color: black;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
 }
 .green-text{
     color: #4CAF50;
@@ -204,8 +194,7 @@
   width: 100%;
   font-family: 'Roboto', sans-serif;
   color: #666;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.7rem;
 }
 .error-message {
   color: #ff4444;
@@ -222,14 +211,7 @@
 .submit-button:active {
   transform: translateY(0);
 }
-.terms {
-  margin-top: 20px;
-  text-align: center;
-  width: 100%;
-  font-family: 'Roboto', sans-serif;
-  color: black;
-  font-size: 0.9rem;
-}
+
 .green-text{
     color: #4CAF50;
 }

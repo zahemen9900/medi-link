@@ -141,11 +141,16 @@ background-position: center center;
 
   .feature-item {
     text-align: left;
+    padding: 0 10px;
   }
 
   .growth-content h2 {
     font-size: 2rem;
+    padding: 0 10px;
     text-align: left;
+  }
+  .section-description {
+    padding: 0 10px;
   }
 }
 

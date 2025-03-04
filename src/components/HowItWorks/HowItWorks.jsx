@@ -18,7 +18,7 @@ const HowItWorks = () => {
     {
       number: 3,
       title: 'Start Referring',
-      description: "Connect clients to their ideal services, backed by My 1Health's trusted network."
+      description: "Connect clients to their ideal services, backed by My Medi-Link's trusted network."
     },
     {
       number: 4,
