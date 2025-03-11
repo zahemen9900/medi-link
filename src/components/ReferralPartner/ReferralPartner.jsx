@@ -15,7 +15,7 @@ const ReferralPartner = () => {
             Start earning with each client you connect to world-class care. Your
             success, simplified.
           </p>
-          <p>Ready to Grow with Us? Join the My 1Health Referral Partner Network Today.</p>
+          <p>Ready to Grow with Us? Join the Medi-Link Referral Partner Network Today.</p>
           <button className="apply-button" onClick={() => setIsModalOpen(true)}>
             Apply today
           </button>

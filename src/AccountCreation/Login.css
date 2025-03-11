@@ -1,0 +1,262 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-position: center center;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-modal {
+  display: flex;
+  width: 80%;
+  max-width: 900px;
+  min-height: 450px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+  background-image: repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 4px),
+    linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+  background-size: 8px 8px, 100% 100%;
+  background-position: center center;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-left p {
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-right {
+  flex: 1.5;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-header {
+  margin-bottom: 40px;
+}
+
+.login-header h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.login-header p {
+  color: #666;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #555;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4b9b6e;
+  box-shadow: 0 0 0 2px rgba(75, 155, 110, 0.1);
+}
+
+.login-button {
+  background-color: #4b9b6e;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.login-button:hover {
+  background-color: #1b5e3a;
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.login-divider .line {
+  flex: 1;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.login-divider span {
+  color: #999;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  font-size: 18px;
+}
+
+.social-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-button.facebook {
+  color: #3b5998;
+}
+
+.social-button.google {
+  background: white;
+  color: #4285F4;
+  border: 1px solid #ddd;
+}
+
+.social-button.google:hover {
+  color: #4285F4;
+  border-color: #4285F4;
+}
+
+.signup-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.signup-prompt span {
+  color: #4b9b6e;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-signup-button {
+  background-color: #4b9b6e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  padding: 0.6rem 1rem;
+  width: 100px;
+  text-align: center;
+  display: inline-block;
+}
+
+.login-signup-button:hover {
+  background-color: #1b5e3a;
+}
+
+@media (max-width: 768px) {
+  .login-modal {
+    width: 95%;
+    flex-direction: column;
+  }
+
+  .login-left {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .login-right {
+    padding: 25px;
+  }
+
+  .login-header {
+    text-align: center;
+  }
+
+  .login-form {
+    max-width: 100%;
+  }
+
+  .signup-prompt {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+}

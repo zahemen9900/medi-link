@@ -49,21 +49,27 @@
   color: #6bbf8a;
 }
 
-.nav-links button {
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
   margin-left: 1.5rem;
+}
+
+.login-btn {
   padding: 0.5rem 1rem;
-  background-color: #fff;
-  color: #4b9b6e;
-  border: none;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
   border-radius: 4px;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.nav-links button:hover {
-  background-color: #ccc;
-  color: #6bbf8a;
+.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger {
@@ -115,8 +121,16 @@
     opacity: 1;
   }
 
-  .nav-links button {
+  .nav-buttons {
+    flex-direction: column;
+    width: 100%;
     margin: 0.5rem 0;
+    gap: 0.5rem;
+  }
+
+  .login-btn {
+    width: 100%;
+    text-align: center;
   }
 
   .hamburger.active span:first-child {

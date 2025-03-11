@@ -1,0 +1,194 @@
+.account-selection-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.account-selection-modal {
+  display: flex;
+  border-radius: 20px;
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.account-left {
+  width: 40%;
+  background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+  background-size: 8px 8px, 100% 100%;
+  background-position: center center;
+  color: white;
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-left h1 {
+  font-size: 3rem;
+  margin-bottom: 100px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.subtitle {
+  margin-top: auto;
+}
+
+.account-left p {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-family: "Roboto", sans-serif;
+}
+
+.account-right {
+  width: 60%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+}
+
+.account-content {
+  padding: 70px 50px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-right h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.radio-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 70px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.radio-option input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  accent-color: #4b9b6e;
+  cursor: pointer;
+}
+
+.radio-option label {
+  font-size: 1.3rem;
+  color: #333;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+}
+
+.next-button {
+  background-color: #4b9b6e;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  width: 120px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  margin-top: auto;
+  font-family: "Roboto", sans-serif;
+}
+
+.next-button:hover {
+  background-color: #1b5e3a;
+}
+
+.next-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 800px) {
+  .account-selection-modal {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .account-left {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .account-left h1 {
+    margin-bottom: 40px;
+  }
+  
+  .subtitle {
+    margin-top: 20px;
+  }
+
+  .account-right {
+    width: 100%;
+  }
+  
+  .account-content {
+    padding: 40px;
+  }
+  
+  .radio-options {
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 50px;
+    align-items: center;
+  }
+  
+  .next-button {
+    margin-top: 20px;
+  }
+} 

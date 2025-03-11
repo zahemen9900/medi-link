@@ -1,4 +1,5 @@
 import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import LogoSection from './components/LogoSection/LogoSection' 
@@ -10,22 +11,36 @@ import Growth from './components/Growth/Growth'
 import FAQ from './components/FAQ/FAQ'
 import Referral from './components/ReferralPartner/ReferralPartner'
 import Footer from './components/Footer/Footer'
+import PatientSignup from './AccountCreation/PatientSignup'
+import DoctorSignup from './AccountCreation/DoctorSignup'
+import Login from './AccountCreation/Login'
+import AccountSelection from './AccountCreation/AccountSelection'
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <LogoSection />
-      <AboutUs />
-      <Milestone />
-      <HowItWorks />
-      <Exclusive />
-      <Growth />
-      <FAQ />
-      <Referral />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Navbar />
+            <Hero />
+            <LogoSection />
+            <AboutUs />
+            <Milestone />
+            <HowItWorks />
+            <Exclusive />
+            <Growth />
+            <FAQ />
+            <Referral />
+            <Footer />
+          </>
+        } />
+        <Route path="/signup/patient" element={<PatientSignup />} />
+        <Route path="/signup/doctors" element={<DoctorSignup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/account-selection" element={<AccountSelection />} />
+      </Routes>
+    </Router>
   )
 }
 

@@ -1,0 +1,204 @@
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem 2rem;
+  background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-position: center center;
+  font-family: "Roboto", sans-serif;
+}
+
+.signup-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 900px;
+  animation: fadeIn 0.5s ease-in-out;
+  font-family: "Roboto", sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signup-header h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+.signup-header p {
+  color: #666;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.signup-form {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-columns {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-column {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4b9b6e;
+  box-shadow: 0 0 0 3px rgba(75, 155, 110, 0.1);
+  background-color: #fff;
+}
+
+.form-group input.error {
+  border-color: #e74c3c;
+  background-color: #fff8f8;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: block;
+  font-family: "Roboto", sans-serif;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+}
+
+.toggle-password:hover {
+  background-color: #f0f0f0;
+}
+
+.form-footer {
+  text-align: center;
+}
+
+.form-signup-button {
+  width: 300px;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-signup-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(75, 155, 110, 0.2);
+}
+
+.login-link {
+  color: #666;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-link a {
+  color: #4b9b6e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    padding: 5rem 1rem 1rem;
+  }
+  
+  .signup-form-container {
+    padding: 1.5rem;
+  }
+  
+  .form-columns {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .signup-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .form-signup-button {
+    max-width: 100%;
+  }
+} 
