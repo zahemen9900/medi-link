@@ -4,6 +4,7 @@ import './FAQ.css';
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+
   const faqData = [
     {
       question: 'What is Medi-Link?',

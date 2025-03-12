@@ -15,6 +15,7 @@ import PatientSignup from './AccountCreation/PatientSignup'
 import DoctorSignup from './AccountCreation/DoctorSignup'
 import Login from './AccountCreation/Login'
 import AccountSelection from './AccountCreation/AccountSelection'
+import Dashboard from './ActualApp/Dashboard'
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/signup/doctors" element={<DoctorSignup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/account-selection" element={<AccountSelection />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   )
