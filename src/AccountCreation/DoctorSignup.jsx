@@ -6,7 +6,8 @@ import Navbar from '../components/Navbar/Navbar';
 
 const DoctorSignup = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    firstName: '',
+    lastName:'',
     email: '',
     phone: '',
     specialization: '',
@@ -99,7 +100,7 @@ const DoctorSignup = () => {
       // Create user object for registration
       const doctorData = {
         id: Date.now().toString(), // Simulate a unique ID (in a real app, this would come from your backend)
-        name: formData.fullName,
+        name: formData.firstName,
         email: formData.email,
         role: 'doctor',
         doctorDetails: {
@@ -141,16 +142,29 @@ const DoctorSignup = () => {
             <div className="form-columns">
               <div className="form-column">
                 <div className="form-group">
-                  <label htmlFor="fullName">Full Name</label>
+                  <label htmlFor="fullName">First Name</label>
                   <input 
                     type="text" 
                     id="fullName" 
                     name="fullName" 
-                    value={formData.fullName}
+                    value={formData.firstName}
                     onChange={handleChange}
-                    className={errors.fullName ? 'error' : ''}
+                    className={errors.firstName ? 'error' : ''}
                   />
-                  {errors.fullName && <span className="error-message">{errors.fullName}</span>}
+                  {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="fullName">Last Name</label>
+                  <input 
+                    type="text" 
+                    id="fullName" 
+                    name="fullName" 
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className={errors.lastName ? 'error' : ''}
+                  />
+                  {errors.lastName && <span className="error-message">{errors.lastName}</span>}
                 </div>
                 
                 <div className="form-group">
