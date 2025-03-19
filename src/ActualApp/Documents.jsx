@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Documents.css";
+import Referrals from "./Referrals"; // Import the Referrals component
+import PatientSummary from "./PatientSummary"; // Import the PatientSummary component
 
 const Documents = ({ initialSection }) => {
   const [activeSection, setActiveSection] = useState("appointments");
   const [activeTab, setActiveTab] = useState("upcoming");
+  const navigate = useNavigate();
 
   // Use the initialSection prop if provided
   useEffect(() => {
@@ -97,16 +101,20 @@ const Documents = ({ initialSection }) => {
                           {appointment.type}
                         </div>
                         <div className="appointment-details">
-                          <div className="appointment-date">{appointment.date}</div>
-                          <div className="appointment-time">{appointment.time}</div>
-                        </div>
-                        <div className="appointment-patient">
-                          <img
-                            src={appointment.avatar}
-                            alt={appointment.patient}
-                            className="patient-avatar"
-                          />
-                          <span className="patient-name">{appointment.patient}</span>
+                          <div className="appointment-info-row">
+                            <div>
+                              <div className="appointment-date">{appointment.date}</div>
+                              <div className="appointment-time">{appointment.time}</div>
+                            </div>
+                            <div className="appointment-patient">
+                              <img
+                                src={appointment.avatar}
+                                alt={appointment.patient}
+                                className="patient-avatar"
+                              />
+                              <span className="patient-name">{appointment.patient}</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -120,16 +128,20 @@ const Documents = ({ initialSection }) => {
                           {appointment.type}
                         </div>
                         <div className="appointment-details">
-                          <div className="appointment-date">{appointment.date}</div>
-                          <div className="appointment-time">{appointment.time}</div>
-                        </div>
-                        <div className="appointment-patient">
-                          <img
-                            src={appointment.avatar}
-                            alt={appointment.patient}
-                            className="patient-avatar"
-                          />
-                          <span className="patient-name">{appointment.patient}</span>
+                          <div className="appointment-info-row">
+                            <div>
+                              <div className="appointment-date">{appointment.date}</div>
+                              <div className="appointment-time">{appointment.time}</div>
+                            </div>
+                            <div className="appointment-patient">
+                              <img
+                                src={appointment.avatar}
+                                alt={appointment.patient}
+                                className="patient-avatar"
+                              />
+                              <span className="patient-name">{appointment.patient}</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -140,79 +152,9 @@ const Documents = ({ initialSection }) => {
           </div>
         );
       case "referral":
-        return <div className="section-content">Referral Tracking Content</div>;
+        return <Referrals />;
       case "summary":
-        return (
-          <div className="section-content summary-content">
-            <div className="patient-summary-container">
-              <div className="patient-info-card">
-                <h3>Patient Information</h3>
-                <div className="info-grid">
-                  <div className="info-item">
-                    <span className="label">Name:</span>
-                    <span className="value">Jane Deer</span>
-                  </div>
-                  <div className="info-item">
-                    <span className="label">Age:</span>
-                    <span className="value">32</span>
-                  </div>
-                  <div className="info-item">
-                    <span className="label">Blood Type:</span>
-                    <span className="value">A+</span>
-                  </div>
-                  <div className="info-item">
-                    <span className="label">Contact:</span>
-                    <span className="value">+1 234-567-8900</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="medical-history-card">
-                <h3>Medical History</h3>
-                <div className="history-list">
-                  <div className="history-item">
-                    <span className="condition">Hypertension</span>
-                    <span className="diagnosis-date">Diagnosed: Jan 2023</span>
-                  </div>
-                  <div className="history-item">
-                    <span className="condition">Type 2 Diabetes</span>
-                    <span className="diagnosis-date">Diagnosed: Mar 2022</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="current-medications-card">
-                <h3>Current Medications</h3>
-                <div className="medications-list">
-                  <div className="medication-item">
-                    <span className="medication-name">Lisinopril</span>
-                    <span className="dosage">10mg daily</span>
-                  </div>
-                  <div className="medication-item">
-                    <span className="medication-name">Metformin</span>
-                    <span className="dosage">500mg twice daily</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="recent-visits-card">
-                <h3>Recent Visits</h3>
-                <div className="visits-list">
-                  <div className="visit-item">
-                    <span className="visit-date">Mar 15, 2024</span>
-                    <span className="visit-type">Regular Checkup</span>
-                    <span className="doctor">Dr. Krishna</span>
-                  </div>
-                  <div className="visit-item">
-                    <span className="visit-date">Feb 1, 2024</span>
-                    <span className="visit-type">Blood Pressure Review</span>
-                    <span className="doctor">Dr. Smith</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
+        return <PatientSummary />;
       case "hospitals":
         return (
           <div className="section-content hospital-available-content">
@@ -449,7 +391,9 @@ const Documents = ({ initialSection }) => {
           </div>
         </nav>
       </div>
-      <div className={`${activeSection === "appointments" ? "appointments-container" : ""}`}>
+      <div className={`${activeSection === "appointments" ? "appointments-container" : ""} 
+                       ${activeSection === "referral" ? "referrals-section-container" : ""} 
+                       ${activeSection === "summary" ? "patient-summary-section-container" : ""}`}>
         {renderContent()}
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../Auth/AuthContext';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -9,7 +10,10 @@ const Login = () => {
     email: '',
     password: ''
   });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,9 +25,37 @@ const Login = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login submitted:', formData);
-    // Simulate successful login and navigate to the dashboard
-    navigate('/dashboard');
+    setError('');
+    setLoading(true);
+    
+    // Simple credential check (for demo purposes)
+    // In a real app, you would validate against an API
+    try {
+      if (formData.email === 'patient@example.com' && formData.password === 'password') {
+        login({
+          id: '1',
+          name: 'John Doe',
+          email: formData.email,
+          role: 'patient'
+        });
+        navigate('/dashboard');
+      } else if (formData.email === 'doctor@example.com' && formData.password === 'password') {
+        login({
+          id: '2',
+          name: 'Dr. Emily Smith',
+          email: formData.email,
+          role: 'doctor'
+        });
+        navigate('/dashboard');
+      } else {
+        setError('Invalid email or password');
+      }
+    } catch (error) {
+      setError('An error occurred during login');
+      console.error('Login error:', error);
+    } finally {
+      setLoading(false);
+    }
   };
   
   return (
@@ -46,6 +78,8 @@ const Login = () => {
           </div>
           
           <form onSubmit={handleSubmit} className="login-form">
+            {error && <div className="error-message">{error}</div>}
+            
             <div className="form-group">
               <label htmlFor="email">*Email</label>
               <input 
@@ -72,7 +106,13 @@ const Login = () => {
               />
             </div>
             
-            <button type="submit" className="login-button">Login</button>
+            <button 
+              type="submit" 
+              className="login-button"
+              disabled={loading}
+            >
+              {loading ? 'Logging in...' : 'Login'}
+            </button>
             
             <div className="login-divider">
               <div className="line"></div>

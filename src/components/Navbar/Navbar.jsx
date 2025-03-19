@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-logo">
-          <Link to="/"><h1>MMMedical</h1></Link>
+          <Link to="/"><h1>Medi-link</h1></Link>
         </div>
         <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
           <span></span>

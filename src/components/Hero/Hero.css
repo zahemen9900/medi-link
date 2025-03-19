@@ -1,5 +1,5 @@
 .hero {
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
   padding: 2rem;
@@ -44,7 +44,6 @@
 
 .hero-content {
   max-width: 50%;
-  margin: 0 auto;
   text-align: center;
   color: #ffffff;
 }
@@ -53,7 +52,6 @@
   text-align: left;
   font-size: 2.2rem;
   font-weight: 700;
-  margin-top: 2rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;
   font-family: "Roboto", sans-serif;

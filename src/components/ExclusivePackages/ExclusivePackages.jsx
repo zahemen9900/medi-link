@@ -46,7 +46,7 @@ const ExclusivePackages = () => {
       <div className="container">
         <h2>Exclusive Packages with Medi-Link</h2>
         <p className="section-description">
-          Partnering with My 1Health gives you access to a suite of enhancements
+          Partnering with Medi-link gives you access to a suite of enhancements
           available only to our trusted network.
         </p>
         <div className="packages-grid">

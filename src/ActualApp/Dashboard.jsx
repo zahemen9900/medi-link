@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Auth/AuthContext";
 import "./Dashboard.css";
 import Events from "./Events";
 import Documents from "./Documents";
@@ -11,6 +13,7 @@ import {
   AiOutlineTeam,
   AiOutlineMail,
   AiOutlineBell,
+  AiOutlineSearch,
   AiOutlineCamera,
   AiOutlineFileText,
   AiOutlineVideoCamera,
@@ -25,12 +28,16 @@ import {
   AiOutlinePlus,
   AiOutlineUser,
   AiOutlineUsergroupAdd,
+  AiOutlineLogout
 } from "react-icons/ai";
 import { FaUserSecret } from "react-icons/fa6";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [selectedWeek, setSelectedWeek] = useState("Weeks");
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   
   // Get current date information
   const currentDate = new Date();
@@ -250,6 +257,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+
+        
+        
         
         <div className="right-column">
           {/* User Profile */}
@@ -304,24 +314,23 @@ const Dashboard = () => {
             <div className="appointments-list">
               {appointments.map(appointment => (
                 <div key={appointment.id} className="appointment-card">
-                  <div className={`appointment-left-bar ${appointment.type.toLowerCase()}`}></div>
-                  <div className="appointment-content">
-                    <div className={`appointment-type-button ${appointment.type.toLowerCase()}`}>
-                      {appointment.type}
+                  {/* Appointment type displayed on top */}
+                  <div className={`appointment-type-button ${appointment.type.toLowerCase()}`}>
+                    {appointment.type}
+                  </div>
+                  {/* All other info stacked below */}
+                  <div className="appointment-info">
+                    <div className="appointment-date-time">
+                      <div className="appointment-date">{appointment.date}</div>
+                      <div className="appointment-time">{appointment.time}</div>
                     </div>
-                    <div className="appointment-info">
-                      <div className="appointment-date-time">
-                        <div className="appointment-date">{appointment.date}</div>
-                        <div className="appointment-time">{appointment.time}</div>
-                      </div>
-                      <div className="appointment-patient-info">
-                        <img 
-                          src={appointment.avatar} 
-                          alt={appointment.patient} 
-                          className="appointment-avatar" 
-                        />
-                        <span className="appointment-patient-name">{appointment.patient}</span>
-                      </div>
+                    <div className="appointment-patient-info">
+                      <img 
+                        src={appointment.avatar} 
+                        alt={appointment.patient} 
+                        className="appointment-avatar" 
+                      />
+                      <span className="appointment-patient-name">{appointment.patient}</span>
                     </div>
                   </div>
                 </div>
@@ -371,31 +380,49 @@ const Dashboard = () => {
     setActiveTab("documents");
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
-    <div className="dashboard">
-      <nav className="top-nav">
+    <div className="dashboard-container">
+      <nav className="navbar">
         <div className="nav-left">
-          <h2 className="logo">Medi-Link</h2>
+          <div className="logo">Medi-Link</div>
         </div>
-        <div className="nav-center">
-          <div className="search-bar">
-            <input type="text" placeholder="Search..." />
-          </div>
+        
+        <div className="search-bar">
+          <input type="text" placeholder="Search..." />
         </div>
+        
         <div className="nav-right">
-          <div className="notification">
-            <span className="notification-icon">
-              <AiOutlineBell />
-            </span>
+          <div className="nav-icon-container">
+            <AiOutlineBell className="nav-icon-bell" />
           </div>
-          <div className="profile">
-            <img
-              src="https://randomuser.me/api/portraits/men/85.jpg"
-              alt="Profile"
-              className="profile-image"
+          <div className="user-profile" onClick={() => setShowUserMenu(!showUserMenu)}>
+            <img 
+              src={user?.doctorDetails?.avatar || "https://randomuser.me/api/portraits/men/85.jpg"} 
+              alt="Doctor Profile" 
+              className="user-avatar" 
             />
-            <span className="profile-text">Dr Krishna</span>
-            <span className="profile-arrow">▼</span>
+            <div className="user-dropdown">
+              <span className="user-name">Dr Krishna</span>
+              <AiOutlineDown className="dropdown-icon" />
+            </div>
+            
+            {showUserMenu && (
+              <div className="user-dropdown-menu">
+                <div className="menu-item">
+                  <AiOutlineUser className="menu-icon" />
+                  <span>My Profile</span>
+                </div>
+                <div className="menu-item" onClick={handleLogout}>
+                  <AiOutlineLogout className="menu-icon" />
+                  <span>Logout</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>

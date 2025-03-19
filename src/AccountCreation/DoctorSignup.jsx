@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../Auth/AuthContext';
 import './Signup.css';
 import Navbar from '../components/Navbar/Navbar';
 
@@ -18,6 +19,9 @@ const DoctorSignup = () => {
   
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { register } = useAuth();
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -89,9 +93,36 @@ const DoctorSignup = () => {
       return;
     }
     
-    // Submit form data
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
+    setLoading(true);
+    
+    try {
+      // Create user object for registration
+      const doctorData = {
+        id: Date.now().toString(), // Simulate a unique ID (in a real app, this would come from your backend)
+        name: formData.fullName,
+        email: formData.email,
+        role: 'doctor',
+        doctorDetails: {
+          phone: formData.phone,
+          specialization: formData.specialization,
+          licenseNumber: formData.licenseNumber,
+          hospital: formData.hospital,
+          experience: formData.experience,
+          avatar: `https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg`
+        }
+      };
+      
+      // Register the user
+      register(doctorData);
+      
+      // Redirect to dashboard
+      navigate('/dashboard');
+    } catch (error) {
+      console.error('Registration error:', error);
+      setErrors({ form: 'Registration failed. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
   };
   
   return (
@@ -105,6 +136,8 @@ const DoctorSignup = () => {
           </div>
           
           <form onSubmit={handleSubmit} className="signup-form">
+            {errors.form && <div className="form-error-message">{errors.form}</div>}
+            
             <div className="form-columns">
               <div className="form-column">
                 <div className="form-group">
@@ -235,7 +268,13 @@ const DoctorSignup = () => {
             </div>
             
             <div className="form-footer">
-              <button type="submit" className="form-signup-button">Create Account</button>
+              <button 
+                type="submit" 
+                className="form-signup-button"
+                disabled={loading}
+              >
+                {loading ? 'Creating Account...' : 'Create Account'}
+              </button>
               <p className="login-link">
                 Already have an account? <Link to="/login">Log in</Link>
               </p>

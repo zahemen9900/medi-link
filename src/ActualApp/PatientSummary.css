@@ -1,0 +1,410 @@
+.patient-summary-container {
+  display: flex;
+  gap: 2rem;
+  background-color: #e8f5e9;
+  padding: 2rem;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.patient-summary-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.patient-summary-right {
+  flex: 1;
+  max-width: 350px;
+}
+
+.report-section,
+.prescription-section,
+.voice-memo-section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: #4b9b6e;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.text-input-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.text-input {
+  width: 100%;
+  min-height: 80px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  resize: none;
+  color: #555;
+}
+
+.edit-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.upload-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.upload-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #4b9b6e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.upload-button.image {
+  background-color: #4b9b6e;
+}
+
+.upload-button.pdf {
+  background-color: #4b9b6e;
+}
+
+.voice-recorder {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f5f5f5;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.play-button,
+.record-button,
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.waveform {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 40px;
+}
+
+.waveform-bar {
+  width: 3px;
+  background-color: #4b9b6e;
+  border-radius: 1px;
+}
+
+.recording-time {
+  font-size: 0.8rem;
+  color: #666;
+  min-width: 40px;
+  text-align: center;
+}
+
+.send-button {
+  align-self: flex-end;
+  padding: 0.75rem 2rem;
+  background-color: #4b9b6e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.patient-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.patient-card h3 {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.patient-info {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.patient-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.patient-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.patient-details {
+  flex: 1;
+  padding: 0.25rem 0;
+}
+
+.patient-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.patient-demographics {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.visit-purpose {
+  margin-bottom: 2rem;
+}
+
+.visit-purpose h3 {
+  margin-bottom: 0.75rem;
+}
+
+.visit-purpose p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.document-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.document-items h3 {
+  margin-bottom: 0.75rem;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 0.75rem;
+}
+
+.document-item:last-child {
+  border-bottom: none;
+}
+
+.document-item:hover {
+  transform: translateY(-2px);
+}
+
+.document-icon {
+  font-size: 1.5rem;
+  color: #4b9b6e;
+  margin-left: 0.25rem;
+}
+
+.document-item label {
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.document-actions {
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.document-item:hover .document-actions {
+  opacity: 1;
+}
+
+.document-action-icon {
+  font-size: 1.2rem;
+  color: #4b9b6e;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.document-action-icon:hover {
+  background-color: rgba(75, 155, 110, 0.1);
+}
+
+/* Document Preview Modal */
+.document-preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.document-preview-modal {
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.document-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.document-preview-header h3 {
+  margin: 0;
+  color: #4b9b6e;
+  font-size: 1.2rem;
+}
+
+.close-preview-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-preview-btn:hover {
+  color: #666;
+}
+
+.document-preview-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.document-preview-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.document-preview-text {
+  color: #333;
+}
+
+.document-preview-text h4 {
+  color: #4b9b6e;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.document-preview-text p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.document-preview-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #4b9b6e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.download-btn:hover {
+  background-color: #3d8a5f;
+}
+
+@media (max-width: 768px) {
+  .patient-summary-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .patient-summary-right {
+    max-width: 100%;
+  }
+} 
