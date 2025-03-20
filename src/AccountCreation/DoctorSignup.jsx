@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 import './Signup.css';
 import Navbar from '../components/Navbar/Navbar';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 const DoctorSignup = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,6 @@ const DoctorSignup = () => {
     email: '',
     phone: '',
     specialization: '',
-    licenseNumber: '',
     hospital: '',
     experience: '',
     password: '',
@@ -20,6 +20,7 @@ const DoctorSignup = () => {
   
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { register } = useAuth();
@@ -43,9 +44,14 @@ const DoctorSignup = () => {
   const validate = () => {
     const newErrors = {};
     
-    // Validate full name
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required';
+    // Validate first name
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+    }
+    
+    // Validate last name
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
     }
     
     // Validate email
@@ -63,11 +69,6 @@ const DoctorSignup = () => {
     // Validate specialization
     if (!formData.specialization.trim()) {
       newErrors.specialization = 'Specialization is required';
-    }
-    
-    // Validate license number
-    if (!formData.licenseNumber.trim()) {
-      newErrors.licenseNumber = 'Medical license number is required';
     }
     
     // Validate password
@@ -101,6 +102,7 @@ const DoctorSignup = () => {
       const doctorData = {
         id: Date.now().toString(), // Simulate a unique ID (in a real app, this would come from your backend)
         name: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email,
         role: 'doctor',
         doctorDetails: {
@@ -142,11 +144,11 @@ const DoctorSignup = () => {
             <div className="form-columns">
               <div className="form-column">
                 <div className="form-group">
-                  <label htmlFor="fullName">First Name</label>
+                  <label htmlFor="firstName">First Name</label>
                   <input 
                     type="text" 
-                    id="fullName" 
-                    name="fullName" 
+                    id="firstName" 
+                    name="firstName" 
                     value={formData.firstName}
                     onChange={handleChange}
                     className={errors.firstName ? 'error' : ''}
@@ -155,11 +157,11 @@ const DoctorSignup = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="fullName">Last Name</label>
+                  <label htmlFor="lastName">Last Name</label>
                   <input 
                     type="text" 
-                    id="fullName" 
-                    name="fullName" 
+                    id="lastName" 
+                    name="lastName" 
                     value={formData.lastName}
                     onChange={handleChange}
                     className={errors.lastName ? 'error' : ''}
@@ -205,19 +207,6 @@ const DoctorSignup = () => {
                   />
                   {errors.specialization && <span className="error-message">{errors.specialization}</span>}
                 </div>
-                
-                <div className="form-group">
-                  <label htmlFor="licenseNumber">Medical License Number</label>
-                  <input 
-                    type="text" 
-                    id="licenseNumber" 
-                    name="licenseNumber" 
-                    value={formData.licenseNumber}
-                    onChange={handleChange}
-                    className={errors.licenseNumber ? 'error' : ''}
-                  />
-                  {errors.licenseNumber && <span className="error-message">{errors.licenseNumber}</span>}
-                </div>
               </div>
               
               <div className="form-column">
@@ -260,7 +249,7 @@ const DoctorSignup = () => {
                       className="toggle-password"
                       onClick={() => setShowPassword(!showPassword)}
                     >
-                      {showPassword ? 'Hide' : 'Show'}
+                      {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                     </button>
                   </div>
                   {errors.password && <span className="error-message">{errors.password}</span>}
@@ -268,14 +257,23 @@ const DoctorSignup = () => {
                 
                 <div className="form-group">
                   <label htmlFor="confirmPassword">Confirm Password</label>
-                  <input 
-                    type="password" 
-                    id="confirmPassword" 
-                    name="confirmPassword" 
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    className={errors.confirmPassword ? 'error' : ''}
-                  />
+                  <div className="password-input-container">
+                    <input 
+                      type={showConfirmPassword ? "text" : "password"} 
+                      id="confirmPassword" 
+                      name="confirmPassword" 
+                      value={formData.confirmPassword}
+                      onChange={handleChange}
+                      className={errors.confirmPassword ? 'error' : ''}
+                    />
+                    <button 
+                      type="button" 
+                      className="toggle-password"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    >
+                      {showConfirmPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                    </button>
+                  </div>
                   {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
                 </div>
               </div>

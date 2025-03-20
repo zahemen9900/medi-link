@@ -20,6 +20,21 @@ import Referrals from './ActualApp/Referrals'
 import { AuthProvider, useAuth } from './Auth/AuthContext'
 import LoadingSpinner from './components/LoadingSpinner'
 
+// Protected route component for both patients and doctors
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated, isPatient, isDoctor, loading } = useAuth();
+  
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+  
+  if (!isAuthenticated || (!isPatient && !isDoctor)) {
+    return <Navigate to="/login" />;
+  }
+  
+  return children;
+};
+
 // Protected route component for patients
 const ProtectedPatientRoute = ({ children }) => {
   const { isAuthenticated, isPatient, loading } = useAuth();
@@ -55,9 +70,10 @@ const AuthRedirect = ({ children }) => {
   const { isAuthenticated, isPatient, isDoctor } = useAuth();
   
   if (isAuthenticated) {
-    if (isPatient || isDoctor) {
+    if (isDoctor) {
       return <Navigate to="/dashboard" />;
     }
+    // If it's a patient, don't redirect to dashboard
   }
   
   return children;
@@ -104,9 +120,9 @@ function App() {
             </AuthRedirect>
           } />
           <Route path="/dashboard" element={
-            <ProtectedPatientRoute>
+            <ProtectedDoctorRoute>
               <Dashboard />
-            </ProtectedPatientRoute>
+            </ProtectedDoctorRoute>
           } />
           <Route path="/referrals" element={
             <ProtectedPatientRoute>

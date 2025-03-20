@@ -265,14 +265,14 @@ const Dashboard = () => {
           {/* User Profile */}
           <div className="user-profile">
             <img 
-              src="https://randomuser.me/api/portraits/men/85.jpg" 
-              alt="Dr Krishna" 
+              src={user?.doctorDetails?.avatar || "https://randomuser.me/api/portraits/men/85.jpg"} 
+              alt="Doctor Profile" 
               className="user-profile-avatar" 
             />
             <div className="user-profile-badge">
               <span>+3</span>
             </div>
-            <h3 className="user-profile-greeting">Hey, Krishna</h3>
+            <h3 className="user-profile-greeting">Hey, {user?.lastName || 'Krishna'}</h3>
           </div>
           
           {/* Appointments Section */}
@@ -407,7 +407,9 @@ const Dashboard = () => {
               className="user-avatar" 
             />
             <div className="user-dropdown">
-              <span className="user-name">Dr Krishna</span>
+              <span className="user-name">
+                {user?.role === 'doctor' ? 'Dr. ' : ''}{user?.lastName || 'Krishna'}
+              </span>
               <AiOutlineDown className="dropdown-icon" />
             </div>
             

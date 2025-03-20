@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/AuthContext";
 import "./Signup.css";
 import Navbar from "../components/Navbar/Navbar";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const PatientSignup = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +17,9 @@ const PatientSignup = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { register } = useAuth();
@@ -41,8 +44,12 @@ const PatientSignup = () => {
     const newErrors = {};
 
     // Validate full name
-    if (!formData.fullName.trim()) {
+    if (!formData.firstName.trim()) {
       newErrors.firstName = "First Name required";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last Name required";
     }
 
     // Validate email
@@ -83,6 +90,7 @@ const PatientSignup = () => {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      setSuccessMessage('');
       return;
     }
 
@@ -91,28 +99,43 @@ const PatientSignup = () => {
     try {
       // Create user object for registration
       const patientData = {
-        id: Date.now().toString(), // Simulate a unique ID (in a real app, this would come from your backend)
+        id: Date.now().toString(),
         name: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email,
         role: "patient",
         patientDetails: {
           phone: formData.phone,
           dateOfBirth: formData.dateOfBirth,
-          address: formData.lastName,
+          address: formData.address,
           avatar: `https://randomuser.me/api/portraits/${
             Math.random() > 0.5 ? "men" : "women"
           }/${Math.floor(Math.random() * 100)}.jpg`,
         },
       };
 
-      // Register the user
+      // Register the user (but don't navigate to dashboard)
       register(patientData);
-
-      // Redirect to dashboard
-      navigate("/dashboard");
+      
+      // Display success message
+      setSuccessMessage("Account created successfully! Only doctor accounts can access the dashboard. Thank you for registering.");
+      setErrors({});
+      
+      // Reset form
+      setFormData({
+        firstName: "",
+        email: "",
+        phone: "",
+        dateOfBirth: "",
+        lastName: "",
+        password: "",
+        confirmPassword: "",
+      });
+      
     } catch (error) {
       console.error("Registration error:", error);
       setErrors({ form: "Registration failed. Please try again." });
+      setSuccessMessage('');
     } finally {
       setLoading(false);
     }
@@ -132,15 +155,19 @@ const PatientSignup = () => {
             {errors.form && (
               <div className="form-error-message">{errors.form}</div>
             )}
+            
+            {successMessage && (
+              <div className="form-success-message">{successMessage}</div>
+            )}
 
             <div className="form-columns">
               <div className="form-column">
                 <div className="form-group">
-                  <label htmlFor="fullName">First Name</label>
+                  <label htmlFor="firstName">First Name</label>
                   <input
                     type="text"
-                    id="fullName"
-                    name="fullName"
+                    id="firstName"
+                    name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
                     className={errors.firstName ? "error" : ""}
@@ -198,11 +225,11 @@ const PatientSignup = () => {
 
               <div className="form-column">
                 <div className="form-group">
-                  <label htmlFor="fullName">Last Name</label>
+                  <label htmlFor="lastName">Last Name</label>
                   <input
                     type="text"
-                    id="fullName"
-                    name="fullName"
+                    id="lastName"
+                    name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
                     className={errors.lastName ? "error" : ""}
@@ -228,7 +255,7 @@ const PatientSignup = () => {
                       className="toggle-password"
                       onClick={() => setShowPassword(!showPassword)}
                     >
-                      {showPassword ? "Hide" : "Show"}
+                      {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                     </button>
                   </div>
                   {errors.password && (
@@ -238,14 +265,23 @@ const PatientSignup = () => {
 
                 <div className="form-group">
                   <label htmlFor="confirmPassword">Confirm Password</label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    className={errors.confirmPassword ? "error" : ""}
-                  />
+                  <div className="password-input-container">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
+                      onChange={handleChange}
+                      className={errors.confirmPassword ? "error" : ""}
+                    />
+                    <button
+                      type="button"
+                      className="toggle-password"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    >
+                      {showConfirmPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                    </button>
+                  </div>
                   {errors.confirmPassword && (
                     <span className="error-message">
                       {errors.confirmPassword}
