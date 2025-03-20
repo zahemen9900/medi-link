@@ -5,6 +5,7 @@ import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -40,7 +41,11 @@ const Login = () => {
           email: formData.email,
           role: 'patient'
         });
-        navigate('/dashboard');
+        // Simulate a delay to show loading spinner
+        setTimeout(() => {
+          navigate('/dashboard');
+          setLoading(false);
+        }, 1500);
       } else if (formData.email === 'doctor@example.com' && formData.password === 'password') {
         login({
           id: '2',
@@ -48,20 +53,26 @@ const Login = () => {
           email: formData.email,
           role: 'doctor'
         });
-        navigate('/dashboard');
+        // Simulate a delay to show loading spinner
+        setTimeout(() => {
+          navigate('/dashboard');
+          setLoading(false);
+        }, 1500);
       } else {
         setError('Invalid email or password');
+        setLoading(false);
       }
     } catch (error) {
       setError('An error occurred during login');
       console.error('Login error:', error);
-    } finally {
       setLoading(false);
     }
   };
   
   return (
     <div className="login-container">
+      {loading && <LoadingSpinner />}
+      
       <div className="login-modal">
         <div className="login-left">
           <h1>Welcome Back!</h1>
@@ -146,4 +157,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;

@@ -1,46 +1,46 @@
 .referrals-container {
-  background-color: #e8f5e9;
-  padding: 2rem;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: 'Roboto', sans-serif;
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  max-width: 1400px;
+  height: auto;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .referrals-container h1 {
-  color: #4b9b6e;
+  color: white;
+  font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  font-size: 2.2rem;
   font-weight: 500;
 }
 
 .referrals-tabs {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
   border-bottom: 2px solid #d0e8d5;
-  margin-bottom: 1.5rem;
 }
 
-.tab-button {
-  background: none;
-  border: none;
-  padding: 0.75rem 2.5rem;
-  font-size: 1.2rem;
-  color: #4b9b6e;
-  cursor: pointer;
+.ref-tab {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 0;
   position: relative;
+  cursor: pointer;
+}
+
+.ref-tab.active {
   font-weight: 500;
 }
 
-.tab-button.active {
-  color: #4b9b6e;
-  font-weight: 600;
+.tab-title {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
-.tab-button.active::after {
-  content: '';
+.active-underline {
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -50,62 +50,101 @@
 }
 
 .referrals-content {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  width: 100%;
+  background-color: transparent;
 }
 
 .referrals-header {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
-  padding: 1.2rem;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: #555;
-  font-size: 1.1rem;
-}
-
-.referrals-header.made-header {
-  grid-template-columns: 1fr 1.2fr 1fr 1fr;
+  margin-bottom: 1rem;
 }
 
 .referrals-list {
-  max-height: 700px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .referral-item {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
-  padding: 1.2rem;
-  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
   align-items: center;
-  transition: background-color 0.2s;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.referral-item.made-item {
-  grid-template-columns: 1fr 1.2fr 1fr 1fr;
+/* Patient column styles */
+.patient-column {
+  display: flex;
+  align-items: center;
 }
 
-.referral-item:hover {
-  background-color: #f9f9f9;
+.patient-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1rem;
 }
 
-.referral-doctor {
+.patient-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.patient-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.patient-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 1rem;
+}
+
+.patient-dob {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.2rem;
+}
+
+.patient-dob-details {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.patient-info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+
+.info-icon {
+  color: #4b9b6e;
+  font-size: 1.1rem;
+}
+
+/* From column styles for Received tab */
+.from-column {
   display: flex;
   align-items: center;
 }
 
 .doctor-avatar {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 1.2rem;
-  background-color: #e0e0e0;
+  margin-right: 1rem;
 }
 
 .doctor-avatar img {
@@ -122,71 +161,23 @@
 .doctor-name {
   font-weight: 500;
   color: #333;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
-.doctor-title, .doctor-date {
-  font-size: 0.9rem;
+.doctor-title {
+  font-size: 0.8rem;
   color: #777;
   margin-top: 0.2rem;
 }
 
-.referral-patient {
-  display: flex;
-  flex-direction: column;
-}
-
-.patient-name {
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 0.3rem;
-  font-size: 1.1rem;
-}
-
-.patient-details {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.2rem;
-}
-
-.info-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: #4b9b6e;
-  color: white;
-  font-size: 0.75rem;
-  margin-left: 0.5rem;
-  font-style: italic;
-}
-
-.patient-dob {
-  font-size: 0.85rem;
-  color: #777;
-}
-
-.referral-to {
-  display: flex;
-  flex-direction: column;
-}
-
-.to-name {
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 0.3rem;
-  font-size: 1.1rem;
-}
-
-.to-specialty, .to-hospital {
-  font-size: 0.9rem;
+.doctor-date {
+  font-size: 0.8rem;
   color: #777;
   margin-top: 0.2rem;
 }
 
-.referral-schedule {
+/* Schedule column styles for Received tab */
+.schedule-column {
   display: flex;
   flex-direction: column;
 }
@@ -194,83 +185,54 @@
 .schedule-date {
   font-weight: 500;
   color: #333;
-  margin-bottom: 0.3rem;
+  font-size: 1rem;
 }
 
-.schedule-time, .schedule-location {
-  font-size: 0.85rem;
+.schedule-time {
+  font-size: 0.8rem;
   color: #777;
   margin-top: 0.2rem;
 }
 
-.referral-status {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.schedule-location {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.2rem;
 }
 
+/* Status styles for Received tab */
 .status-indicator {
   display: flex;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .status-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #4b9b6e;
   margin-right: 0.5rem;
 }
 
-.status-indicator.pending .status-dot {
-  background-color: #ff9800;
-}
-
-.status-indicator.accepted .status-dot {
-  background-color: #4caf50;
-}
-
-.status-indicator.completed .status-dot {
-  background-color: #2196f3;
-}
-
-.status-indicator.declined .status-dot {
-  background-color: #f44336;
-}
-
 .status-text {
   color: #4b9b6e;
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
-.status-indicator.pending .status-text {
-  color: #ff9800;
-}
-
-.status-indicator.accepted .status-text {
-  color: #4caf50;
-}
-
-.status-indicator.completed .status-text {
-  color: #2196f3;
-}
-
-.status-indicator.declined .status-text {
-  color: #f44336;
+.status-buttons {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .status-button {
-  padding: 0.4rem 0.75rem;
+  border: none;
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
   cursor: pointer;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  max-width: 100px;
-  text-align: center;
-  border: none;
 }
 
 .status-button.accept {
@@ -283,45 +245,368 @@
   color: white;
 }
 
-.status-button.view {
-  background-color: #2196f3;
-  color: white;
+/* Specialist column styles */
+.specialist-column {
+  display: flex;
+  flex-direction: column;
 }
 
-.status-button.follow-up {
-  background-color: #ff9800;
+.specialist-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.specialist-title {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.specialist-hospital {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.2rem;
+}
+
+/* Priority column styles */
+.priority-column {
+  display: flex;
+  align-items: center;
+}
+
+.priority-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.priority-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.priority-indicator.normal .priority-dot {
+  background-color: #4CAF50;
+}
+
+.priority-indicator.urgent .priority-dot {
+  background-color: #FF9800;
+}
+
+.priority-indicator.critical .priority-dot {
+  background-color: #F44336;
+}
+
+.priority-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.priority-indicator.normal .priority-text {
+  color: #4CAF50;
+}
+
+.priority-indicator.urgent .priority-text {
+  color: #FF9800;
+}
+
+.priority-indicator.critical .priority-text {
+  color: #F44336;
+}
+
+/* Status column styles for Made tab */
+.status-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  margin-bottom: 0.5rem;
+}
+
+.check-icon {
   color: white;
+  font-size: 1.2rem;
+}
+
+/* Make Referral button */
+.make-referral-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+}
+
+.make-referral-button {
+  background-color: #4b9b6e;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
   .referrals-container {
     padding: 1rem;
   }
-  
+
   .referrals-header, .referral-item {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
-  .referrals-header.made-header, .referral-item.made-item {
-    grid-template-columns: 1fr;
+
+  .referral-item {
+    padding: 1rem;
   }
-  
-  .header-from, .header-patient, .header-schedule, .header-status, .header-to {
+
+  .patient-column, .specialist-column, .priority-column, .status-column,
+  .from-column, .schedule-column {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.referrals-new-container {
+  background-color: #e8ffe8;
+  border-radius: 10px;
+  padding: 2rem;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.referrals-new-container h1 {
+  color: #4b9b6e;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.referrals-new-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #4b9b6e;
+  gap: 1rem;
+}
+
+.ref-tab-button {
+  background: none;
+  border: none;
+  padding: 0.5rem 2rem;
+  font-size: 1.1rem;
+  color: #4b9b6e;
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  text-align: center;
+}
+
+.ref-tab-button.active {
+  color: #4b9b6e;
+  font-weight: 600;
+  position: relative;
+}
+
+.ref-tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #4b9b6e;
+}
+
+.referrals-new-content {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.referrals-new-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+}
+
+.referrals-new-list {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.referral-new-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  background: white;
+}
+
+.referral-new-doctor {
+  display: flex;
+  align-items: center;
+}
+
+.doctor-new-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.8rem;
+}
+
+.doctor-new-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-new-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-new-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.doctor-new-title, .doctor-new-date {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.2rem;
+}
+
+.referral-new-patient {
+  display: flex;
+  align-items: center;
+}
+
+.patient-new-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.patient-new-details {
+  display: flex;
+  align-items: center;
+}
+
+.info-new-icon {
+  color: #4b9b6e;
+  font-size: 1rem;
+}
+
+.referral-new-schedule {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-new-date {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.schedule-new-time {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.2rem;
+}
+
+.referral-new-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-new-indicator {
+  margin-bottom: 0.5rem;
+}
+
+.status-opened {
+  color: #4b9b6e;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-new-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-new-button {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.status-new-button.accept {
+  background-color: #4b9b6e;
+  color: white;
+}
+
+.status-new-button.decline {
+  background-color: #f44336;
+  color: white;
+}
+
+.make-referral-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.make-referral-button {
+  background-color: #4b9b6e;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .referrals-new-container {
+    padding: 1rem;
+  }
+
+  .referrals-new-header, .referral-new-item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .header-from, .header-patient, .header-schedule, .header-status {
     display: none;
   }
-  
-  .referral-doctor, .referral-patient, .referral-schedule, .referral-status, .referral-to {
-    padding: 0.5rem 0;
-  }
-  
-  .referral-status {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .status-button {
-    margin: 0 0.25rem;
+
+  .referral-new-status {
+    align-items: flex-start;
   }
 } 

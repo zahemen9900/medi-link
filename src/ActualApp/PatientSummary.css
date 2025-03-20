@@ -1,8 +1,6 @@
 .patient-summary-container {
   display: flex;
   gap: 2rem;
-  background-color: #e8f5e9;
-  padding: 2rem;
   border-radius: 10px;
   font-family: 'Roboto', sans-serif;
   width: 100%;

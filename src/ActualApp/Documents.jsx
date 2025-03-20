@@ -7,6 +7,7 @@ import PatientSummary from "./PatientSummary"; // Import the PatientSummary comp
 const Documents = ({ initialSection }) => {
   const [activeSection, setActiveSection] = useState("appointments");
   const [activeTab, setActiveTab] = useState("upcoming");
+  const [showNavigation, setShowNavigation] = useState(true);
   const navigate = useNavigate();
 
   // Use the initialSection prop if provided
@@ -110,7 +111,7 @@ const Documents = ({ initialSection }) => {
                               <img
                                 src={appointment.avatar}
                                 alt={appointment.patient}
-                                className="patient-avatar"
+                                className="patient-avatars"
                               />
                               <span className="patient-name">{appointment.patient}</span>
                             </div>
@@ -152,7 +153,7 @@ const Documents = ({ initialSection }) => {
           </div>
         );
       case "referral":
-        return <Referrals />;
+        return <Referrals hideNavigation={true} onShowMakeReferral={() => setShowNavigation(false)} onHideMakeReferral={() => setShowNavigation(true)} />;
       case "summary":
         return <PatientSummary />;
       case "hospitals":
@@ -355,46 +356,52 @@ const Documents = ({ initialSection }) => {
 
   return (
     <div className="documents-container">
-      <div className="documents-main">
-        <nav className="documents-nav">
-          <div
-            className={`nav-item ${
-              activeSection === "appointments" ? "active" : ""
-            }`}
-            onClick={() => setActiveSection("appointments")}
-          >
-            Appointments
+      {showNavigation && (
+        <div className="documents-sidebar">
+          <div className="documents-main">
+            <nav className="documents-nav">
+              <div
+                className={`nav-item ${
+                  activeSection === "appointments" ? "active" : ""
+                }`}
+                onClick={() => setActiveSection("appointments")}
+              >
+                Appointments
+              </div>
+              <div
+                className={`nav-item ${
+                  activeSection === "referral" ? "active" : ""
+                }`}
+                onClick={() => setActiveSection("referral")}
+              >
+                Referral track
+              </div>
+              <div
+                className={`nav-item ${
+                  activeSection === "summary" ? "active" : ""
+                }`}
+                onClick={() => setActiveSection("summary")}
+              >
+                Patient summary
+              </div>
+              <div
+                className={`nav-item ${
+                  activeSection === "hospitals" ? "active" : ""
+                }`}
+                onClick={() => setActiveSection("hospitals")}
+              >
+                Hospitals available
+              </div>
+            </nav>
           </div>
-          <div
-            className={`nav-item ${
-              activeSection === "referral" ? "active" : ""
-            }`}
-            onClick={() => setActiveSection("referral")}
-          >
-            Referral track
-          </div>
-          <div
-            className={`nav-item ${
-              activeSection === "summary" ? "active" : ""
-            }`}
-            onClick={() => setActiveSection("summary")}
-          >
-            Patient summary
-          </div>
-          <div
-            className={`nav-item ${
-              activeSection === "hospitals" ? "active" : ""
-            }`}
-            onClick={() => setActiveSection("hospitals")}
-          >
-            Hospitals available
-          </div>
-        </nav>
-      </div>
-      <div className={`${activeSection === "appointments" ? "appointments-container" : ""} 
-                       ${activeSection === "referral" ? "referrals-section-container" : ""} 
-                       ${activeSection === "summary" ? "patient-summary-section-container" : ""}`}>
-        {renderContent()}
+        </div>
+      )}
+      <div className="documents-content">
+        <div className={`${activeSection === "appointments" ? "appointments-container" : ""} 
+                         ${activeSection === "referral" ? "referrals-section-container" : ""} 
+                         ${activeSection === "summary" ? "patient-summary-section-container" : ""}`}>
+          {renderContent()}
+        </div>
       </div>
     </div>
   );

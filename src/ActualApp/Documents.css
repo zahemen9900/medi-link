@@ -2,11 +2,23 @@
   display: flex;
   gap: 2rem;
   padding: 1rem;
+  position: relative;
+}
+
+.documents-sidebar {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  width: 250px;
+}
+
+.documents-content {
+  flex: 1;
+  overflow-y: auto;
 }
 
 .documents-main {
-  flex: 4;
-  height: 350px;
+  width: 100%;
   background: linear-gradient(135deg, #4b9b6e 0%, #2e7d5c 50%, #1b5e3a 100%);
   background-image: repeating-linear-gradient(
       45deg,
@@ -83,6 +95,7 @@
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .nav-item {
@@ -115,15 +128,13 @@
 }
 
 .appointments-content {
-  background-color: #e8ffe8;
   border-radius: 12px;
-  padding: 1.5rem;
   height: auto;
 }
 
 .tab-header {
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #ddd;
   padding-bottom: 0.5rem;
@@ -132,14 +143,14 @@
 .tab-header h3 {
   cursor: pointer;
   margin: 0;
-  color: #666;
+  color: #fff;
   font-weight: 500;
   padding-bottom: 0.5rem;
   position: relative;
 }
 
 .tab-header h3.active {
-  color: #4b9b6e;
+  color: #fff;
   font-weight: 600;
 }
 
@@ -228,13 +239,6 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-}
-
-.patient-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
 }
 
 .patient-name {
@@ -589,3 +593,10 @@
 .facilities-list li:last-child {
   border-bottom: none;
 }
+.appointment-item img {
+  max-width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+

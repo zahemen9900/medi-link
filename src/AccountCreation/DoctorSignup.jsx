@@ -4,6 +4,7 @@ import { useAuth } from '../Auth/AuthContext';
 import './Signup.css';
 import Navbar from '../components/Navbar/Navbar';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const DoctorSignup = () => {
   const [formData, setFormData] = useState({
@@ -118,12 +119,15 @@ const DoctorSignup = () => {
       // Register the user
       register(doctorData);
       
-      // Redirect to dashboard
-      navigate('/dashboard');
+      // Simulate a delay to show loading spinner
+      setTimeout(() => {
+        // Redirect to dashboard
+        navigate('/dashboard');
+        setLoading(false); // Reset loading state after navigation
+      }, 1500);
     } catch (error) {
       console.error('Registration error:', error);
       setErrors({ form: 'Registration failed. Please try again.' });
-    } finally {
       setLoading(false);
     }
   };
@@ -131,6 +135,7 @@ const DoctorSignup = () => {
   return (
     <>
       <Navbar />
+      {loading && <LoadingSpinner />}
       <div className="signup-container">
         <div className="signup-form-container">
           <div className="signup-header">
@@ -298,4 +303,4 @@ const DoctorSignup = () => {
   );
 };
 
-export default DoctorSignup; 
+export default DoctorSignup;

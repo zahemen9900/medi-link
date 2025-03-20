@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/AuthContext";
 import "./Dashboard.css";
@@ -6,6 +6,7 @@ import Events from "./Events";
 import Documents from "./Documents";
 import Network from "./Network";
 import Messages from "./Messages";
+import LoadingSpinner from "../components/LoadingSpinner";
 import {
   AiOutlineHome,
   AiOutlineCalendar,
@@ -36,8 +37,19 @@ const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [selectedWeek, setSelectedWeek] = useState("Weeks");
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  
+  // Show loading spinner when component mounts
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   // Get current date information
   const currentDate = new Date();
@@ -386,103 +398,106 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-container">
-      <nav className="navbar">
-        <div className="nav-left">
-          <div className="logo">Medi-Link</div>
-        </div>
-        
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-        </div>
-        
-        <div className="nav-right">
-          <div className="nav-icon-container">
-            <AiOutlineBell className="nav-icon-bell" />
+    <>
+      {loading && <LoadingSpinner />}
+      <div className="dashboard-container">
+        <nav className="navbar">
+          <div className="nav-left">
+            <div className="logo">Medi-Link</div>
           </div>
-          <div className="user-profile" onClick={() => setShowUserMenu(!showUserMenu)}>
-            <img 
-              src={user?.doctorDetails?.avatar || "https://randomuser.me/api/portraits/men/85.jpg"} 
-              alt="Doctor Profile" 
-              className="user-avatar" 
-            />
-            <div className="user-dropdown">
-              <span className="user-name">
-                {user?.role === 'doctor' ? 'Dr. ' : ''}{user?.lastName || 'Krishna'}
-              </span>
-              <AiOutlineDown className="dropdown-icon" />
+          
+          <div className="search-bar">
+            <input type="text" placeholder="Search..." />
+          </div>
+          
+          <div className="nav-right">
+            <div className="nav-icon-container">
+              <AiOutlineBell className="nav-icon-bell" />
             </div>
-            
-            {showUserMenu && (
-              <div className="user-dropdown-menu">
-                <div className="menu-item">
-                  <AiOutlineUser className="menu-icon" />
-                  <span>My Profile</span>
-                </div>
-                <div className="menu-item" onClick={handleLogout}>
-                  <AiOutlineLogout className="menu-icon" />
-                  <span>Logout</span>
-                </div>
+            <div className="user-profile" onClick={() => setShowUserMenu(!showUserMenu)}>
+              <img 
+                src={user?.doctorDetails?.avatar || "https://randomuser.me/api/portraits/men/85.jpg"} 
+                alt="Doctor Profile" 
+                className="user-avatar" 
+              />
+              <div className="user-dropdown">
+                <span className="user-name">
+                  {user?.role === 'doctor' ? 'Dr. ' : ''}{user?.lastName || 'Krishna'}
+                </span>
+                <AiOutlineDown className="dropdown-icon" />
               </div>
-            )}
+              
+              {showUserMenu && (
+                <div className="user-dropdown-menu">
+                  <div className="menu-item">
+                    <AiOutlineUser className="menu-icon" />
+                    <span>My Profile</span>
+                  </div>
+                  <div className="menu-item" onClick={handleLogout}>
+                    <AiOutlineLogout className="menu-icon" />
+                    <span>Logout</span>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </nav>
-      
-      <div className="main-wrapper">
-        <div className="sidebar">
-          <div
-            className={`nav-item ${activeTab === "home" ? "active" : ""}`}
-            onClick={() => setActiveTab("home")}
-          >
-            <span className="nav-icon">
-              <AiOutlineHome />
-            </span>
-            <span className="nav-text">Home</span>
-          </div>
-          <div
-            className={`nav-item ${activeTab === "calendar" ? "active" : ""}`}
-            onClick={() => setActiveTab("calendar")}
-          >
-            <span className="nav-icon">
-              <AiOutlineCalendar />
-            </span>
-            <span className="nav-text">Calendar</span>
-          </div>
-          <div
-            className={`nav-item ${activeTab === "documents" ? "active" : ""}`}
-            onClick={() => setActiveTab("documents")}
-          >
-            <span className="nav-icon">
-              <AiOutlineFileText />
-            </span>
-            <span className="nav-text">Documents</span>
-          </div>
-          <div
-            className={`nav-item ${activeTab === "network" ? "active" : ""}`}
-            onClick={() => setActiveTab("network")}
-          >
-            <span className="nav-icon">
-              <AiOutlineUsergroupAdd />
-            </span>
-            <span className="nav-text">Network</span>
-          </div>
-          <div
-            className={`nav-item ${activeTab === "messages" ? "active" : ""}`}
-            onClick={() => setActiveTab("messages")}
-          >
-            <span className="nav-icon">
-              <AiOutlineMail />
-            </span>
-            <span className="nav-text">Messages</span>
-          </div>
-        </div>
+        </nav>
         
-        <div className="main-content">
-          {renderActiveComponent()}
+        <div className="main-wrapper">
+          <div className="sidebar">
+            <div
+              className={`nav-item ${activeTab === "home" ? "active" : ""}`}
+              onClick={() => setActiveTab("home")}
+            >
+              <span className="nav-icon">
+                <AiOutlineHome />
+              </span>
+              <span className="nav-text">Home</span>
+            </div>
+            <div
+              className={`nav-item ${activeTab === "calendar" ? "active" : ""}`}
+              onClick={() => setActiveTab("calendar")}
+            >
+              <span className="nav-icon">
+                <AiOutlineCalendar />
+              </span>
+              <span className="nav-text">Calendar</span>
+            </div>
+            <div
+              className={`nav-item ${activeTab === "documents" ? "active" : ""}`}
+              onClick={() => setActiveTab("documents")}
+            >
+              <span className="nav-icon">
+                <AiOutlineFileText />
+              </span>
+              <span className="nav-text">Documents</span>
+            </div>
+            <div
+              className={`nav-item ${activeTab === "network" ? "active" : ""}`}
+              onClick={() => setActiveTab("network")}
+            >
+              <span className="nav-icon">
+                <AiOutlineUsergroupAdd />
+              </span>
+              <span className="nav-text">Network</span>
+            </div>
+            <div
+              className={`nav-item ${activeTab === "messages" ? "active" : ""}`}
+              onClick={() => setActiveTab("messages")}
+            >
+              <span className="nav-icon">
+                <AiOutlineMail />
+              </span>
+              <span className="nav-text">Messages</span>
+            </div>
+          </div>
+          
+          <div className="main-content">
+            {renderActiveComponent()}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

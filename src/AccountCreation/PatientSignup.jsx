@@ -4,6 +4,7 @@ import { useAuth } from "../Auth/AuthContext";
 import "./Signup.css";
 import Navbar from "../components/Navbar/Navbar";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const PatientSignup = () => {
   const [formData, setFormData] = useState({
@@ -117,26 +118,30 @@ const PatientSignup = () => {
       // Register the user (but don't navigate to dashboard)
       register(patientData);
       
-      // Display success message
-      setSuccessMessage("Account created successfully! Only doctor accounts can access the dashboard. Thank you for registering.");
-      setErrors({});
-      
-      // Reset form
-      setFormData({
-        firstName: "",
-        email: "",
-        phone: "",
-        dateOfBirth: "",
-        lastName: "",
-        password: "",
-        confirmPassword: "",
-      });
+      // Simulate a delay to show loading spinner
+      setTimeout(() => {
+        // Display success message
+        setSuccessMessage("Account created successfully! Only doctor accounts can access the dashboard. Thank you for registering.");
+        setErrors({});
+        
+        // Reset form
+        setFormData({
+          firstName: "",
+          email: "",
+          phone: "",
+          dateOfBirth: "",
+          lastName: "",
+          password: "",
+          confirmPassword: "",
+        });
+        
+        setLoading(false);
+      }, 1500);
       
     } catch (error) {
       console.error("Registration error:", error);
       setErrors({ form: "Registration failed. Please try again." });
       setSuccessMessage('');
-    } finally {
       setLoading(false);
     }
   };
@@ -144,6 +149,7 @@ const PatientSignup = () => {
   return (
     <>
       <Navbar />
+      {loading && <LoadingSpinner />}
       <div className="signup-container">
         <div className="signup-form-container">
           <div className="signup-header">
